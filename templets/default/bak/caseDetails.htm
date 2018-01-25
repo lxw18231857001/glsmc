@@ -1,0 +1,43 @@
+{dede:include filename="head.htm"/}
+<div class="caseData">
+	<div class="container">
+	   <div class="yishi">
+		<h3>铝包木门窗 天津市富力芳堤花园</h3>
+		<p>格兰斯铝包木门窗为其提供了众多服务，木窗定制，上门测量，专业安装等。</p>
+		<div class="ct">
+		  <div class="banner">
+		    <div id="full-screen-slider">
+		      <ul id="slides" class="jquery-reslider">
+		        {dede:arclist type='image' typeid='12' row='5' orderby='pubdate'}
+		          <li style="background:url('[field:litpic/]') center center;background-size: 100% 100%;background-size: cover;"><a href="#" target="_blank">[field:title/]</a></li> 
+		        {/dede:arclist}
+		      </ul>
+		      <div class="slider-direction slider-direction-next"></div>
+		      <div class="slider-direction slider-direction-prev"></div>
+		      <div class="slider-dots">
+		        <ul>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<p>&nbsp;</p>
+		<h4>目录背景</h4>
+		<p>天津市富力芳堤花园项目总货量500量。首推南区A1~A4栋高层洋房，定位高端，清一色大户型设计，户型主要为137~223平米大3居和大4居。</p>
+	   </div>	
+	</div>
+</div>
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.min.js"></script>
+<script>
+  $(function(){
+    $('.jquery-reslider').reSlider({
+      speed:30,//设置轮播的高度
+      delay:5000,//设置轮播的延迟时间
+      imgCount:5,//设置轮播的图片数
+      dots:true,//设置轮播的序号点
+      autoPlay:true//设置轮播是否自动播放
+    });
+  });
+</script>  
+
+{dede:include filename="footer.htm"/}

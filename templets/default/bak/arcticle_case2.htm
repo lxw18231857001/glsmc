@@ -1,0 +1,191 @@
+<!-- 案例详情 -->
+{dede:include filename="head.htm"/}
+<div class="caseData">
+	<div class="container">
+	   <div class="yishi">
+	   	<div class="picbox">
+			{dede:field name="body"/}
+             {dede:field name='pagestyle' alt='根据不同的页面风格输出不同的头信息' runphp='yes'}
+                if(@me==3) {
+                	@me = '<ul class="e8">';
+                }
+                else if(@me==2) {
+                	@me = "
+					<!-- <center>
+						<a href='javascript:dPlayBig();' class='c1'>原始图片</a>\r\n
+						<a href='javascript:dPlayPre();' class='c1'>上一张</a>\r\n
+						<a href='javascript:dPlayNext();' class='c1'>下一张</a>\r\n
+						<a href='javascript:dStopPlay();' class='c1'>自动 / 暂停播放</a>\r\n
+					</center> -->
+                	";
+                }
+                else {
+                	@me = '';
+                }
+             {/dede:field}
+             <!-- 如果使用的是多页单图模式(幻灯)，把href里的链接改为 javascript:dPlayNext(); 表示点击看下一页 -->
+             {dede:field name='imgurls' alt='图片输出区'}
+                [field:pagestyle runphp='yes'] @me= (@me==3 ? '<li>' : '');[/field:pagestyle]
+               <div id="box" style="display:block">
+			       <a href='javascript:dPlayPre();' class='c1'><pre class="prev">prev</pre></a>
+			       <a href='javascript:dPlayNext();' class='c1'><pre class="next">next</pre></a>
+                <a href='[field:linkurl/]' [field:pagestyle runphp='yes'] @me= (@me==3 ? 'class="pic"' : ''); [/field:pagestyle]>
+                  <center><img src='[field:imgsrc/]' id='bigimg' [field:imgwidth /] alt='[field:alttext /]' border='0' style="width:1020px;height:450px;margin-top:15px" /></center>
+                </a>
+              </div>
+				<div style="clear:both"></div>
+               <!--  <a href='[field:linkurl/]' [field:pagestyle runphp='yes']@me = (@me==3 ? 'class="title"' : '');[/field:pagestyle]>
+                	[field:title /]
+                </a> -->
+                [field:pagestyle runphp='yes'] @me = (@me==3 ? '</li>' : ''); [/field:pagestyle]
+             {/dede:field}
+
+             {dede:field name='pagestyle' alt='根据不同的风格输出不同的结尾信息' runphp='yes'}
+                if(@me==3) {
+                @me = '</ul>';
+                }
+                else if(@me==2) {
+                	@me = "<script language='javascript'>dStartPlay();</script>\r\n";
+               	}
+               	else {
+               		@me = '';
+                }
+             {/dede:field}
+			</div>
+				<!-- 	<center>
+						<a href='javascript:dPlayBig();' class='c1'>原始图片</a>\r\n
+						<a href='javascript:dPlayPre();' class='c1'>上一张</a>\r\n
+						<a href='javascript:dPlayNext();' class='c1'>下一张</a>\r\n
+						<a href='javascript:dStopPlay();' class='c1'>自动 / 暂停播放</a>\r\n
+					</center> -->
+		<!-- <h3>铝包木门窗 天津市富力芳堤花园</h3>
+		<p>格兰斯铝包木门窗为其提供了众多服务，木窗定制，上门测量，专业安装等。</p> -->
+		<!-- <div class="ct">
+		  <div class="banner">
+		    <div id="full-screen-slider">
+		      <ul id="slides" class="jquery-reslider">
+		        {dede:arclist type='image' typeid='12' row='5' orderby='pubdate'}
+		          <li style="background:url('[field:litpic/]') center center;background-size: 100% 100%;background-size: cover;"><a href="#" target="_blank">[field:title/]</a></li> 
+		        {/dede:arclist}
+		      </ul>
+		      <div class="slider-direction slider-direction-next"></div>
+		      <div class="slider-direction slider-direction-prev"></div>
+		      <div class="slider-dots">
+		        <ul>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+		</div> -->
+		<!-- <p>&nbsp;</p>
+		<h4>目录背景</h4>
+		<p>天津市富力芳堤花园项目总货量500量。首推南区A1~A4栋高层洋房，定位高端，清一色大户型设计，户型主要为137~223平米大3居和大4居。</p> -->
+	   </div>	
+	</div>
+</div>
+
+
+
+<script language="javascript" type="text/javascript">
+
+function postDigg(ftype,aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	var saveid = GetCookie('diggid');
+	if(saveid != null)
+	{
+		var saveids = saveid.split(',');
+		var hasid = false;
+		saveid = '';
+		j = 1;
+		for(i=saveids.length-1;i>=0;i--)
+		{
+			if(saveids[i]==aid && hasid) continue;
+			else {
+				if(saveids[i]==aid && !hasid) hasid = true;
+				saveid += (saveid=='' ? saveids[i] : ','+saveids[i]);
+				j++;
+				if(j==20 && hasid) break;
+				if(j==19 && !hasid) break;
+			}
+		}
+		if(hasid) { alert("您已经顶过该帖，请不要重复顶帖 ！"); return; }
+		else saveid += ','+aid;
+		SetCookie('diggid',saveid,1);
+	}
+	else
+	{
+		SetCookie('diggid',aid,1);
+	}
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	var url = "{dede:global.cfg_phpurl/}/digg_ajax.php?action="+ftype+"&id="+aid;
+	myajax.SendGet2(url);
+	DedeXHTTP = null;
+}
+function getDigg(aid)
+{
+	var taget_obj = document.getElementById('newdigg');
+	myajax = new DedeAjax(taget_obj,false,false,'','','');
+	myajax.SendGet2("{dede:global.cfg_phpurl/}/digg_ajax.php?id="+aid);
+	DedeXHTTP = null;
+}
+
+
+  var shortname = "{dede:global.art_shortname/}";
+  var npage = {dede:field name='nowpage'/};
+	var totalpage = {dede:field name='totalpage'/};
+	var namehand = '{dede:field name='namehand'/}';
+	var displaytype = '{dede:field name='displaytype'/}';
+	var gtimer = null;
+	//大图
+	function dPlayBig()
+	{
+		var imgObj = document.getElementById("bigimg");
+		window.open(imgObj.src);
+	}
+	//停止幻灯
+	function dStopPlay()
+	{
+		if(gtimer) clearTimeout(gtimer);
+		else dPlayNext();
+	}
+	//开始幻灯
+	function dStartPlay()
+	{
+		if(npage!=totalpage) {
+			gtimer = setTimeout("dPlayNext()",10000);
+		}
+	}
+
+	//上一张
+	function dPlayPre(){
+
+	if(npage<2)
+	{
+			alert("这是第一页");
+	}
+	else
+	{
+			if(npage==2) {
+				if(namehand!='') location.href = namehand+shortname;
+				else location.href = "view.php?aid={dede:field name='id'/}";
+			} else if(displaytype=='st' && namehand!='') {
+				location.href = namehand+"_"+(npage-1)+shortname;
+			} else {
+				location.href = "view.php?aid={dede:field name='id'/}&pageno="+(npage-1);
+			}
+		}
+	}
+
+	//下一张
+	function dPlayNext()
+	{
+		if(npage==totalpage) { alert("没有了哦"); }
+		else
+		{
+			if(displaytype=='st' && namehand!='') location.href = namehand+"_"+(npage+1)+shortname;
+			else location.href = "view.php?aid={dede:field name='id'/}&pageno="+(npage+1);
+		}
+	}
+</script>
+{dede:include filename="footer.htm"/}

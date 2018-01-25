@@ -1,0 +1,46 @@
+ {dede:include filename="head.htm"/}
+<div class="listCase">
+<div class="" >
+	<img class="img-responsive"   src="{dede:global.cfg_templets_skin/}/images/case_appreciate/caseBanner.png" alt="案例详情">
+	
+</div>
+<div class="container center">
+	<div class="text-center">
+		<div class="Lxian"></div>
+		<div class="Midd"><h3>精品案例</h3><p>NEW PRODUCT</p></div>
+		<div class="Rxian"></div>
+	</div>
+	<div class="caseImgs row">
+	<div class="listbox">
+			<ul>
+           {dede:list pagesize='4' orderby='id' orderway='asc' col='2'}
+			<li>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 effect-ming">
+                <a href="[field:arcurl/]" title="[field:title/]">
+                  <img class="img-responsive" src="[field:litpic/]" alt="格兰斯门窗案例.pic" style="width:420px;height:360px" />
+                  <figcaption>
+					<h2><span >[field:title/]</span></h2>
+					<p>[field:shorttitle/]</p>
+				</figcaption>
+                </a>
+				</div>
+			</li>
+          {/dede:list}
+			</ul>
+		</div>
+	</div>
+	  <!-- page -->
+          <div class="dede_pages">
+            <ul>
+              {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+            </ul>
+          </div>
+   <!-- //page -->
+</div>
+</div>
+<script type="text/javascript">
+	[].slice.call( document.querySelectorAll('a[href="#"') ).forEach( function(el) {
+				el.addEventListener( 'click', function(ev) { ev.preventDefault(); } );
+			} );
+</script>
+ {dede:include filename="footer.htm"/} 

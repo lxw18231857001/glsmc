@@ -1,0 +1,33 @@
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+
+</head>
+<body>
+{dede:include filename="head.htm"/}
+<div class="container-fluid" style="border-top: 2px solid #D9D9D9;">
+<div class="container">
+  <div class="newsDeta">
+  <h3><center>{dede:field name="title"/}</center></h3>
+  <center><p class="time">{dede:field.pubdate function="MyDate('Y-m-d',@me)"/}</p></center>
+  <br> <br>
+  		{dede:field name="body"/}
+  		
+<br/><br/>
+	<div style='width:80%'>
+		<div style="float:left">{dede:prenext get='pre'/}</div>
+		<div style="float:right">{dede:prenext get='next'/}</div>
+	</div>	
+</div>
+</div>
+</div>
+{dede:include filename="footer.htm"/}
+
+</body>
+</html>

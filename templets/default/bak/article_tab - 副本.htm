@@ -1,0 +1,71 @@
+<style>
+body{font:14px/22px "宋体";}ul,li{margin:0;padding:0;list-style:none;}
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden;line-height:0;}.clearfix{zoom:1;}
+.siderbar{width:300px;margin:30px;}
+.jqtab_content ul{border:1px solid #eee;}
+.jqtab_list li{float:left;width:60px;height:24px;text-align:center;margin-right:10px;cursor:pointer;border:1px solid #333;}
+.jqtab_list li.current{ background:#999;font-weight:bold;}
+</style>
+<!-- <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+//标签切换
+$(".jqtab_content ul").hide();
+$(".index_SERIES_PRODUCTS li:first-child").addClass("current");
+$(".jqtab_content ul:first-child").show();
+$(".jqtab_content ul").attr("id", function(){return "No" + $(".jqtab_content ul").index(this)});
+$(".index_SERIES_PRODUCTS li").mousemove(function(){
+    $(this).addClass("current").siblings().removeClass("current");
+    var c = $(".index_SERIES_PRODUCTS li");
+    var j = c.index(this);
+    var objname = "No" + j;
+    $("#"+objname).siblings().hide();
+    $("#"+objname).show();
+});
+});
+</script>
+
+   <!-- {dede:arclistsg row='10' titlelen='24' orderby='pubdate' channelid='-8' typeid='34' idlist=''}
+        <ul class="jqtab_list clearfix" style="float:right">
+        <li >
+         <a href="[field:arcurl /]" target="" id="tab[field:arcurl /]">[field:title /]</a>
+       </li></ul>
+
+        {/dede:arclistsg} -->
+
+
+<!-- 
+  {dede:arclist addfields='附加字段1,附加字段2,附加字段3' row='8' channelid='自定义模型id号'}
+[field:textlink /] [field:附加字段1/] [field:附加字段2/][field:附加字段3/]
+
+{/dede:arclist} -->
+
+
+ {dede:arclist  typeid='35' channelid='1'  row='8' addfields='huanbao,pinzhi,zungui,sheji,fuwu' limit='0,1'}
+
+  <ul class="" >
+    <li >[field:huanbao /]</li>
+    <li >[field:pinzhi /]</li>
+    <li >[field:zungui /]</li>
+    <li >[field:sheji /]</li>
+    <li >[field:fuwu /]</li>
+  </ul>
+
+
+{/dede:arclist}
+
+
+
+ <!--  <ul class="jqtab_list clearfix"><li>环保</li><li>品质</li><li>尊贵</li><li>设计</li><li>服务</li></ul> -->
+
+  <!-- <div class="jqtab_content">
+
+    <ul><li>例如这里可以使用DEDE的自定义字段 也就是你要显示的产品特点字段 {dede:field.huanbao/}55 {dede:field.body/}</li></ul>
+    <ul><li>内容222</li><li>内容2222</li></ul>
+    <ul><li>内容33333</li><li>内容3333</li></ul>
+    <ul><li>内容444</li><li>内容444</li></ul>
+    <ul><li>内容5555</li><li>内容5555</li></ul>
+  </div>
+</div> -->
+   
+<!-- </html> -->

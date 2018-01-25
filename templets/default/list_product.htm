@@ -1,0 +1,61 @@
+ {dede:include filename="head.htm"/}
+ <link href="{dede:global.cfg_templets_skin/}/style/product.css" rel="stylesheet" media="screen" type="text/css"  />
+ <div><img class="img-responsive" src="{dede:global.cfg_templets_skin/}/images/productbanne.png"></div>
+<div class="container center clear">
+  <div class="index_SERIES_PRODUCTS " style="margin:80px 0px;"> 
+    <!-- list -->
+      <div class="clearfix">
+        <ul class="menu mt20 list productList">
+          {dede:channelartlist typeid='2' currentstyle='current'}
+          <li class='{dede:field.currentstyle/}'><a href="{dede:field name='typeurl'/}" title='{dede:field name='typename'/}'>{dede:field name='typename'/}</a></li>
+          {/dede:channelartlist}
+        </ul>
+      </div>
+      <!-- list --> 
+  </div>
+  <script>
+    $(function () {
+      var navLi = $(".productList li");
+      var windowUrl = location.pathname;
+      navLi.eq(0).addClass("current");
+      navLi.each(function () {
+        var t = $(this).find("a").attr("href");
+        if(t==windowUrl){
+          $(this).addClass("current").siblings().removeClass("current")
+        }
+      });
+    });
+
+  </script>
+  <div class="clearfix">
+            <ul class="product_list row">
+              {dede:list pagesize='6' orderby='id' orderway='asc'}
+              <li class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+              <!-- 测试版本 -->
+              <!-- <a href="/dedegls/a/cpzs/lbmcxl">
+                <img src="[field:litpic/]">
+                <span class="mask">[field:title/]</span>
+              </a> -->
+              <!-- 下面是原本 -->
+                <a href="[field:arcurl/]" title="[field:title/]">
+                  <img class="img-responsive" src="[field:litpic/]" alt="格兰斯门窗.pic" width="" />
+                  <span class="mask">[field:title/]</span>
+                </a>
+              </li>
+              {/dede:list}
+            </ul>
+    </div>
+    <div style="clear:both"></div>
+    <!-- page -->
+    <div>
+          <div class="dede_pages">
+            <ul>
+              {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="6"/}
+            </ul>
+          </div>
+</div>   <!-- //page -->
+</div>
+{dede:include filename="footer.htm"/} 
+
+
+

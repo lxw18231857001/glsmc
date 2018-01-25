@@ -1,0 +1,25 @@
+<!-- 案例详情 -->
+{dede:include filename="head.htm"/}
+<link href="{dede:global.cfg_templets_skin/}/style/lrtk.css" rel="stylesheet" media="screen" type="text/css" />
+ <link href="{dede:global.cfg_templets_skin/}/style/product.css" rel="stylesheet" media="screen" type="text/css" />
+<div class="caseData">
+	<div class="container">
+	   <div class="yishi">
+	   	<div id="full-screen-slider" style="margin-bottom:20px;">
+			<ul  id="slides">
+				{dede:productimagelist}
+				<li style="background:url('[field:imgsrc/]') center center;background-size: 100% 100% ;">
+				</li> 
+				{/dede:productimagelist}
+			</ul>
+			<div class="slider-direction slider-direction-next"></div>
+			<div class="slider-direction slider-direction-prev"></div>
+			<div class="slider-dots">
+			    <ul></ul>
+			</div>
+	   </div>
+	{dede:field name="body"/}
+	   </div>	
+	</div>
+</div>
+{dede:include filename="footer.htm"/}

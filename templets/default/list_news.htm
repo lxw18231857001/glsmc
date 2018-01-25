@@ -1,0 +1,155 @@
+{dede:include filename="head.htm"/}
+<div class="list_news">
+	<div><img class="img-responsive" src="{dede:global.cfg_templets_skin/}/images/news/xw-banner.png"></div>
+	<div class="container">
+		<div class="bs-example bs-example-tabs">
+			<!-- <ul id="myTabs" class="nav nav-tabs" role="tablist">
+		      <li role="presentation" class="active">
+		      	<a href="#news" id="news-tab" role="tab" data-toggle="tab" aria-controls="news" aria-expanded="true">
+		      		新闻动态
+		      	</a>
+		      </li>
+		      <li role="presentation" class="">
+		      	<a href="#problems" role="tab" id="problems-tab" data-toggle="tab" aria-controls="problems" aria-expanded="false">
+		      		常见问题
+		      	</a>
+		      </li>
+    		</ul> -->
+			<ul id="myTabs" class="nav nav-tabs" role="tablist">
+				{dede:channelartlist typeid='5' currentstyle='current'}
+				<li class='{dede:field.currentstyle/}'><a href='{dede:field name='typeurl'/}' title='{dede:field name='typename'/}'>{dede:field name='typename'/}</a></li>
+				{/dede:channelartlist}
+			</ul>
+			<script type="text/javascript">
+				$(function () {
+					var myTabs = $("#myTabs li");
+					var myTabsUrl = location.pathname;
+					myTabs.eq(0).addClass("active");
+					myTabs.each(function () {
+						var tt = $(this).find("a").attr("href");
+						if(tt==myTabsUrl){
+							$(this).addClass("active").siblings().removeClass("active")
+						}
+					});
+				});
+
+			</script>
+			<!-- content -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade active in" id="news" aria-labelledby="news-tab">
+
+					<!-- {dede:arclist typeid='38' imgwidth='' imgheight=''   orderby='pubdate' keyword=''  titlelen='3000' row='5' }
+                       <div class="col-md-12 col-sm-12 col-xs-12">
+                         <div class="imgLeft">
+                           <a href="[field:arcurl /]" title="北京格兰斯门窗有限公司" target="_blank">
+                               <img  style="width:275px;height:210px" class="img-responsive" src="[field:litpic/]" alt="pic"  /></a>
+                         </div>
+                         <div class="imgRight">
+                           <a href="[field:arcurl /]" title="" target="_blank"><h5>[field:title /]</h5></a>
+                               <div style="float:right;margin-top:-50px;"> [field:pubdate function="MyDate('Y-m-d',@me)"/]</div>
+                          <p style="text-indent:2em;">[field:description/]...</p>
+                          <p class="text-right"><a href="[field:arcurl /]">查看详情</a></p>
+                         </div>
+                         </div>
+                      {/dede:arclist} -->
+					{dede:list pagesize='5' orderby='id' orderway='desc'}
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="imgLeft">
+							<a href="[field:arcurl /]" title="北京格兰斯门窗有限公司" target="_blank">
+								<img style="width:275px;height:210px" class="img-responsive" src="[field:litpic/]" alt="pic"  /></a>
+						</div>
+						<div class="imgRight">
+							<a href="[field:arcurl /]" title="" target="_blank"><h5>[field:title /]</h5></a>
+							<div style="float:right;margin-top:-50px;"> [field:pubdate function="MyDate('Y-m-d',@me)"/]</div>
+
+							<p style="text-indent:2em;">[field:description/]...</p>
+							<p class="text-right"><a href="[field:arcurl /]">查看详情</a></p>
+						</div>
+					</div>
+					{/dede:list}
+
+				</div>
+				<!-- 上面新闻动态 下面常见问题 -->
+
+				<div role="tabpanel" class="tab-pane fade" id="problems" aria-labelledby="problems-tab">
+					<!-- {dede:arclist typeid='37' imgwidth='' imgheight=''   orderby='pubdate' keyword=''  titlelen='300' row='5' }
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                         <div class="imgLeft">
+                            <a href="[field:arcurl /]" title="北京格兰斯门窗有限公司" target="_blank">
+                      <img style="width:275px;height:210px" class="img-responsive" src="[field:litpic/]" alt="pic"  /></a>
+                         </div>
+                         <div class="imgRight">
+                                  <a href="[field:arcurl /]" title="" target="_blank"><h5>[field:title /]</h5></a>
+                                  <div style="float:right;margin-top:-50px;"> [field:pubdate function="MyDate('Y-m-d',@me)"/]</div>
+
+                              <p style="text-indent:2em;">[field:description/]...</p>
+                              <p class="text-right"><a href="[field:arcurl /]">查看详情</a></p>
+                         </div>
+                       </div>
+
+                      {/dede:arclist} -->
+					{dede:list pagesize='5' orderby='id' orderway='desc'}
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="imgLeft">
+							<a href="[field:arcurl /]" title="北京格兰斯门窗有限公司" target="_blank">
+								<img style="width:275px;height:210px" class="img-responsive" src="[field:litpic/]" alt="pic"  /></a>
+						</div>
+						<div class="imgRight">
+							<a href="[field:arcurl /]" title="" target="_blank"><h5>[field:title /]</h5></a>
+							<div style="float:right;margin-top:-50px;"> [field:pubdate function="MyDate('Y-m-d',@me)"/]</div>
+
+							<p style="text-indent:2em;">[field:description/]...</p>
+							<p class="text-right"><a href="[field:arcurl /]">查看详情</a></p>
+						</div>
+					</div>
+					{/dede:list}
+
+				</div>
+
+
+
+				<!-- <div role="tabpanel" class="tab-pane fade active in" id="news" aria-labelledby="news-tab">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="imgLeft">
+                            <img class="img-responsive" src="{dede:global.cfg_templets_skin/}/images/news/news-img2.png">
+                        </div>
+                        <div class="imgRight">
+                            <h5>铝包木门窗加盟，勒索病毒愈演愈烈？末雨绸缪，防患之心不可无！</h5>
+                            <p style="text-indent:2em;">
+                                据报道，本月12日，以欧洲为中心爆发Wannacry病毒勒索威胁，已扩散至全球，15日大部分企业和公共机构恢复业务，恐造成更多危害。所幸多数企业和公共机构已做好防范，目前损失并不严重。但估计随时规模会进一步加大...
+                            </p>
+                            <p class="text-right"><a href="">查看详情</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="problems" aria-labelledby="problems-tab">
+                     <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="imgLeft">
+                            <img class="img-responsive" src="{dede:global.cfg_templets_skin/}/images/news/news-img1.png">
+                        </div>
+                        <div class="imgRight">
+                            <h5>不要怀疑，一扇窗也能画龙点睛！</h5>
+                            <p style="text-indent:2em;">人们总有各种原因去装修，买新房，旧房翻新，甚至因为心情。从地板到天花板，从大门到衣柜，从选色到设计，人们都十分注重。那你有没有想过，一扇门或者一扇窗，能够让你的房子更加惊艳，达到一种 “画龙点睛” 的效果？</p>
+                            <p class="text-right"><a href="">查看详情</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+			</div>
+
+			<!-- content -->
+			<!-- page -->
+			<div class="dede_pages">
+				<ul>
+					{dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+				</ul>
+			</div>
+			<!-- //page -->
+		</div>
+	</div>
+
+	{dede:include filename="footer.htm"/}

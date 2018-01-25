@@ -1,0 +1,71 @@
+ {dede:include filename="head.htm"/}
+ <link href="{dede:global.cfg_templets_skin/}/style/product.css" rel="stylesheet" media="screen" type="text/css"  />
+<div class="w960 center clear">
+  <div class="index_SERIES_PRODUCTS " style="margin:80px 0px;"> 
+    <!-- list -->
+      <div class="clearfix">
+        <ul class="menu mt20 list">
+          {dede:channelartlist typeid='2' currentstyle='current'}
+          <li class='{dede:field.currentstyle/}'><a href='{dede:field name='typeurl'/}' title='{dede:field name='typename'/}'>{dede:field name='typename'/}</a></li>
+          {/dede:channelartlist}
+        </ul>
+      </div>
+      <!-- list --> 
+  </div>
+
+ <!--  <div class="clearfix">
+            <ul class="case-list zz min-height gallery">
+              {dede:list pagesize='21' orderby='id' orderway='asc'}
+              <li><a href="[field:litpic/]" title="[field:title/]"><img src="[field:litpic/]" alt="" width="235" /><p class="mt10 color-yellow font-s-14 txt-center">[field:title/]</p></a></li>
+              {/dede:list}
+            </ul>
+    </div> -->
+  <ul class="product_list">
+    <li><a href=""><img src="{dede:global.cfg_templets_skin/}/images/case01.png" /><span class="mask">铝包木门窗</span></a></li>
+    <li><a href=""><img src="{dede:global.cfg_templets_skin/}/images/case02.png" /><span class="mask">铝包木门窗</span></a></li>
+    <li><a href=""><img src="{dede:global.cfg_templets_skin/}/images/case03.png" /><span class="mask">铝包木门窗</span></a></li>
+    <li><a href=""><img src="{dede:global.cfg_templets_skin/}/images/case04.png" /><span class="mask">铝包木门窗</span></a></li>
+    <li><a href=""><img src="{dede:global.cfg_templets_skin/}/images/case05.png" /><span class="mask">铝包木门窗</span></a></li>
+    <li><a href=""><img src="{dede:global.cfg_templets_skin/}/images/case06.png" /><span class="mask">铝包木门窗</span></a></li>
+    <div style="clear:both"></div>
+  </ul>
+
+<!--   <div class="dede_pages">
+   <ul class="pagelist">
+    {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="5"/}
+   </ul>
+  </div>
+<div class="dede_pages"><ul class="pagelist">{dede:pagebreak/}</ul></div> -->
+          <div class=" dede_pages yeehim-pager mt60 mb60 clearfix">
+            <ul class="pagelist">
+              {dede:pagelist listitem="info,index,end,pre,next,pageno,option" listsize="6"/}
+            </ul>
+          </div>
+</div>
+
+    
+  <!-- /pages -->
+{dede:include filename="footer.htm"/} 
+<!-- /footer --> 
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery.min.js"></script> 
+<!-- <script src="{dede:global.cfg_templets_skin/}/js/jquery.reslider.js"></script>  --> 
+<script>
+  $(function(){
+    $('.jquery-reslider').reSlider({
+      speed:30,//设置轮播的高度
+      delay:5000,//设置轮播的延迟时间
+      imgCount:5,//设置轮播的图片数
+      dots:true,//设置轮播的序号点
+      autoPlay:true//设置轮播是否自动播放
+    });
+  });
+</script> 
+<!-- lunbotu --> 
+
+<!-- lunbotu --> 
+<!-- 折叠图 --> 
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jq.orbit.js"></script> 
+<script language="javascript" type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/orbit.js"></script> 
+<!-- //折叠图 -->
+
+</body></html>

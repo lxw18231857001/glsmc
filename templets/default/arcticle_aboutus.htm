@@ -1,0 +1,41 @@
+{dede:include filename="head.htm"/}
+<div class="aboutUs">
+	<!-- banner -->
+	<div>
+		<img class="img-responsive" src="{dede:global.cfg_templets_skin/}/images/aboutUs/672686299090198924.png">
+		 <!-- <img class="img-responsive" src="{dede:field name='typeimg'}" alt="{dede:field.typename/}" /> -->
+	</div>
+	<!-- banner -->
+	<div class="container">
+		<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+			<ul id="aboutUsTabs" class="nav nav-tabs" role="tablist">
+		     {dede:channelartlist typeid='1' currentstyle='current'}
+		          <li class='{dede:field.currentstyle/}'>
+		          	<a href="{dede:field name='typeurl'/}" title="{dede:field name='typename'/}">{dede:field name='typename'/}</a>
+		          </li>
+
+		         {/dede:channelartlist}
+		    </ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade active in" id="about1" aria-labelledby="about1-tab">
+					{dede:field.content/}
+				</div>				
+			</div>	
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function () {
+		var aboutUsTabs = $("#aboutUsTabs li");
+		var windowUrlus = location.pathname;
+		aboutUsTabs.eq(0).addClass("active");
+		aboutUsTabs.each(function () {
+			var tt = $(this).find("a").attr("href");
+			if(tt==windowUrlus){
+				$(this).addClass("active").siblings().removeClass("active")
+			}
+		});
+	});
+
+</script>
+{dede:include filename="footer.htm"/}

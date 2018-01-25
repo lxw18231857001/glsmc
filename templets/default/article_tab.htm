@@ -1,0 +1,50 @@
+<!-- <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script> -->
+<script type="text/javascript">
+$(document).ready(function(){
+//标签切换
+$(".jqtab_content ul").hide();
+$(".jqtab_list li:first-child").addClass("current");
+$(".jqtab_content ul:first-child").show();
+$(".jqtab_content ul").attr("id", function(){return "No" + $(".jqtab_content ul").index(this)});
+$(".jqtab_list li").mousemove(function(){
+    $(this).addClass("current").siblings().removeClass("current");
+    var c = $(".jqtab_list li");
+    var j = c.index(this);
+    var objname = "No" + j;
+    $("#"+objname).siblings().hide();
+    $("#"+objname).show();
+});
+});
+</script>
+
+<div class="">
+  {dede:arclist  typeid='35' channelid='1'  row='8'  addfields='huanbao,pinzhi,zungui,sheji,fuwu' limit='0,1'}
+  <div class="tab" > 
+  <a title="[field:title /]" href="#">
+    <div class="jqtab_content">
+      <ul>
+        <li>[field:huanbao /]</li >
+      </ul>
+      <ul>
+        <li >[field:pinzhi /]</li>
+      </ul>
+      <ul>
+        <li >[field:zungui /]</li>
+      </ul>
+      <ul>
+        <li >[field:sheji /]</li>
+      </ul>
+      <ul >
+        <li>[field:fuwu /]</li>
+      </ul>
+    </div>
+    </a>
+
+
+
+  </div>
+  {/dede:arclist}
+
+
+</div>
+<!-- </html>

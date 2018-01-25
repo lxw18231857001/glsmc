@@ -1,0 +1,135 @@
+
+{dede:include filename="head.htm"/}
+<!-- 轮播 -->
+<div class="ct" style="margin:0 auto;">
+    <script language='javascript'>
+      linkarr = new Array();
+      picarr = new Array();
+      textarr = new Array();
+      var swf_width=1420;
+      var swf_height=300;
+      //文字颜色|文字位置|文字背景颜色|文字背景透明度|按键文字颜色|按键默认颜色|按键当前颜色|自动播放时间|图片过渡效果|是否显示按钮|打开方式
+      var configtg='0xffffff|1|0x000000|30|0xffffff|0x4f6898|0x000033|3|3|1|_blank';
+      // var configtg="0xffffff|2|0x000000|30|0xffffff|0x4f6898|0x000033|8|3|1:是否显示按钮|_blank:打开新窗口";
+      // var configtg='2|3|1|_blank';
+      var files = "";
+      var links = "";
+      var texts = "";
+      //这里设置调用标记
+      // {dede:arclist flag='f' row='5'}
+      linkarr[[field:global.autoindex/]] = "http://www.glsmc.com/";
+      picarr[[field:global.autoindex/]]  = "[field:litpic/]";
+      textarr[[field:global.autoindex/]] = "北京格兰斯门窗有限公司";
+      // {/dede:arclist}
+      // for(i=1;i<picarr.length;i++){
+      // if(files=="") files = picarr[i];
+      // else files += "|"+picarr[i];
+      // }
+      for(i=1;i<picarr.length;i++){
+  　　if(files=="") files = picarr[i].replace("-lp","");
+  　　else files += "|"+picarr[i].replace("-lp","");
+
+  　　}
+      for(i=1;i<linkarr.length;i++){
+      if(links=="") links = linkarr[i];
+      else links += "|"+linkarr[i];
+      }
+      for(i=1;i<textarr.length;i++){
+      if(texts=="") texts = textarr[i];
+      else texts += "|"+textarr[i];
+      }
+      document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="'+ swf_width +'" height="'+ swf_height +'">');
+      document.write('<param name="movie" value="{dede:global.cfg_templeturl /}/default/images/bcastr3.swf"><param name="quality" value="high">');
+      document.write('<param name="menu" value="false"><param name=wmode value="opaque">');
+      document.write('<param name="FlashVars" value="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+configtg+'">');
+      document.write('<embed src="{dede:global.cfg_templeturl /}/default/images/bcastr3.swf" wmode="opaque" FlashVars="bcastr_file='+files+'&bcastr_link='+links+'&bcastr_title='+texts+'&bcastr_config='+configtg+'&menu="false" quality="high" width="'+ swf_width +'" height="'+ swf_height +'" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'); document.write('</object>');
+      </script>
+</div>
+
+
+
+<!-- /轮播 -->
+<!-- /header -->
+<!--guo2017/4/20按照第二版开发-->
+<div>
+  <div class="w960 center clear mt1">
+     <h2 align="center" style="margin-top:25px;">系列产品</h2>
+     <div class="pleft" align="center">SERIES PRODUCTS</div>
+  </div>
+  <div class="index_SERIES_PRODUCTS">
+        <div class="index_SERIES_PRODUCTS_div"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div" ><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+  </div>
+</div>
+
+<div>
+  <div class="w960 center clear mt1">
+     <h2 align="center" style="margin-top:25px;">经典案例</h2>
+     <div class="pleft" align="center">NEW PRODUCTS</div>
+  </div>
+  <div class="index_SERIES_PRODUCTS1">
+        <div class="index_SERIES_PRODUCTS_div1"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div1" ><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div1"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+  </div>
+  <div class="index_SERIES_PRODUCTS1">
+        <div class="index_SERIES_PRODUCTS_div1"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div1" ><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div1"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+  </div>
+</div>
+
+<div>
+  <div class="w960 center clear mt1">
+     <h2 align="center" style="margin-top:30px;">更多服务</h2>
+     <div class="pleft" align="center">MORE SERVICE</div>
+  </div>
+  <div class="index_SERIES_PRODUCTS3">
+    
+        <span>实景体验</span>
+        <span style="float:right;">更多</span>
+        <div class="moreservice"><img src="{dede:global.cfg_templets_skin/}/images/ceshi2.jpg">
+       
+
+		 <div class="index_SERIES_PRODUCTS_div3" >
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+			  <p>北京格兰斯门窗有限公司</p>
+		</div>
+		</div>
+  </div>
+</div>
+<!--正品保障-->
+<div>
+  <div class="w960 center clear mt1"></div>
+  <div class="index_SERIES_PRODUCTS">
+        <div class="index_SERIES_PRODUCTS_div"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div" ><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+        <div class="index_SERIES_PRODUCTS_div"><img src="{dede:global.cfg_templets_skin/}/images/ceshi.jpg"></div>
+  </div>
+</div>
+<!--guo2017/4/20-->
+{dede:include filename="footer.htm"/}
+<!-- /footer -->
+
+</body>
+</html>
